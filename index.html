@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Folder</title>
+    <link rel="stylesheet" href="normalize.css"/>
+    <link rel="stylesheet" href="index.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="folder">
+        <div class="folder__head" id="folderHead"></div>
+        <div class="folder__file" id="folderFile">
+          <div class="folder__fileBefore" id="folderFileBefore"></div>
+          <div class="fileHeader" id="fileHeader">
+            <div class="fileHeader--top">
+              <div class="fileHeader--top__switch">
+                <div class="switchButton closeButton"></div>
+                <div class="switchButton minimizeButton"></div>
+                <div class="switchButton maximiazeButton"></div>
+              </div>
+              <div class="fileHeader--top__folderName">Frontend Folder</div>
+              <div class="fileHeader--top__searchBar"></div>
+            </div>
+            <div class="fileHeader--control">
+              <input type="button" class="controlButton upload" value="upload" id="uploadButton"/>
+              <input type="button" class="controlButton compress" value="compress"/>
+              <input type="button" class="controlButton copy" value="copy"/>
+              <input type="button" class="controlButton delete" value="delete"/>
+            </div>
+          </div>
+          <div class="fileContainer" id="fileContainer">
+            <div class="fileContainer__row1" id="fileContainerRow1">
+              <div class="fileItem">
+                <div class="fileIcon">&lt/&gt</div>
+                <svg class="fileSvg">
+                  <path class="fileSvgPath" d="M0 0 L0 150 L120 150 L120 30 L90 0 L0 0"></path>
+                  <path class="fileCornerSvgPath" d="M90 0 L90 30 L120 30 Z"></path>
+                </svg>
+                <div class="progressBar" id="progressBar">
+                  <div class="progressState" id="progressState"></div>
+                  <svg class="successIconSvg">
+                    <path class="successIconSvgPath" d="M1 10 L5 14 L14 3"></path>
+                  </svg>
+                </div>
+              </div>
+              <div class="fileItem">
+                <div class="fileIcon">css</div>
+                <svg class="fileSvg">
+                  <path class="fileSvgPath" d="M0 0 L0 150 L120 150 L120 30 L90 0 L0 0"></path>
+                  <path class="fileCornerSvgPath" d="M90 0 L90 30 L120 30 Z"></path>
+                </svg>
+              </div>
+              <div class="fileItem">
+                <div class="fileIcon">css</div>
+                <svg class="fileSvg">
+                  <path class="fileSvgPath" d="M0 0 L0 150 L120 150 L120 30 L90 0 L0 0"></path>
+                  <path class="fileCornerSvgPath" d="M90 0 L90 30 L120 30 Z"></path>
+                </svg>
+              </div>
+              <div class="fileItem">
+                <div class="fileIcon">json</div>
+                <svg class="fileSvg">
+                  <path class="fileSvgPath" d="M0 0 L0 150 L120 150 L120 30 L90 0 L0 0"></path>
+                  <path class="fileCornerSvgPath" d="M90 0 L90 30 L120 30 Z"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="fileContainer__row2" id="fileContainerRow2">
+              <div class="fileItem">
+                <div class="fileIcon">&lt/&gt</div>
+                <svg class="fileSvg">
+                  <path class="fileSvgPath" d="M0 0 L0 150 L120 150 L120 30 L90 0 L0 0"></path>
+                  <path class="fileCornerSvgPath" d="M90 0 L90 30 L120 30 Z"></path>
+                </svg>
+              </div>
+              <div class="fileItem">
+                <div class="fileIcon">psd</div>
+                <svg class="fileSvg">
+                  <path class="fileSvgPath" d="M0 0 L0 150 L120 150 L120 30 L90 0 L0 0"></path>
+                  <path class="fileCornerSvgPath" d="M90 0 L90 30 L120 30 Z"></path>
+                </svg>
+              </div>
+              <div class="fileItem">
+                <div class="fileIcon">psd</div>
+                <svg class="fileSvg">
+                  <path class="fileSvgPath" d="M0 0 L0 150 L120 150 L120 30 L90 0 L0 0"></path>
+                  <path class="fileCornerSvgPath" d="M90 0 L90 30 L120 30 Z"></path>
+                </svg>
+              </div>
+              <div class="fileItem">
+                <div class="fileIcon">js</div>
+                <svg class="fileSvg">
+                  <path class="fileSvgPath" d="M0 0 L0 150 L120 150 L120 30 L90 0 L0 0"></path>
+                  <path class="fileCornerSvgPath" d="M90 0 L90 30 L120 30 Z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="mouse" id="mouse"></div>
+        </div>
+        <div class="folder__cover" id="folderCover"></div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,451 @@
+* {
+  margin: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+
+
+
+
+
+/****************************************\
+  $FOLDER
+\****************************************/
+.folder {
+  width: 200px;
+  height: 150px;
+  background-color: #3396b5;
+  /*background-color: transparent;*/
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  perspective: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 465px;
+}
+    .folder__head {
+      width: 80px;
+      height: 12.5px;
+      background-color: #3396b5;
+      position: absolute;
+      left: 0%;
+      top: -12.5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      /*visibility: hidden;*/
+    }
+    .folder__cover {
+      width: 200px;
+      height: 120px;
+      background-color: #3396b5;
+      position: absolute;
+      left: 0%;
+      bottom: 0%;
+      border-top: 2px solid #FFF;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      transform-origin: 50% 100% 0;
+      transform: rotatex(0deg);
+      /* rotate along x aix to -70 degree*/
+      /*visibility: hidden;*/
+    }
+    @keyframes openFolderCover {
+      0% {
+        transform: rotatex(0deg);
+      }
+      100% {
+        transform: rotatex(-70deg);
+      }
+    }
+    .folder__file {
+      width: 180px;
+      height: 140px;
+      background-color: #FFF;
+      /*background-color: transparent;*/
+      margin-left: auto;
+      margin-right: auto;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      transform: translateZ(0px);
+      transition: all 0.1s ease;
+    }
+    .folder__fileBefore {
+      width: 930px;
+      height: 630px;
+      position: absolute;
+      /*top: -15px;
+      left: -15px;*/
+      filter: blur(20px);
+      background-image: url(background.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -1;
+      opacity: 0;
+      transition: top 0.1s ease, left 0.1s ease, opacity 0.3s 0.2s linear;
+    }
+    @keyframes maximizeFileSize {
+      0% {
+        width: 180px;
+        height: 140px;
+        background-color: #FFF;
+        top: 10px;
+        left: 10px;
+      }
+      50% {
+        width: 180px;
+        height: 140px;
+        position: absolute;
+        top: -150px;
+        left: 10px;
+      }
+      100% {
+        width: 900px;
+        height: 600px;
+        border-radius: 10px;
+        /*background-color: transparent;*/
+        position: absolute;
+        left: -350px;
+        top: -225px;
+        overflow: hidden;
+      }
+    }
+    /*.maximizeFileSize {
+      width: 900px;
+      height: 600px;
+      border-radius: 10px;
+      position: absolute;
+      left: -350px;
+      top: -225px;
+      overflow: hidden;
+    }
+    .maximizeFileSize::before {
+      content: "";
+      display: block;
+      width: 930px;
+      height: 630px;
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      filter: blur(20px);
+      background-image: url(background3.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      z-index: -1;
+    }*/
+
+
+
+
+
+
+/****************************************\
+  $FILE
+\****************************************/
+.fileHeader {
+  width: 100%;
+  height: 25%;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+    .fileHeader--top {
+      width: 100%;
+      height: 40%;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+        .fileHeader--top__folderName {
+          position: absolute;
+          left: 40%;
+          font-size: 1.5em;
+          font-weight: bold;
+          color: #FFF;
+        }
+        .fileHeader--top__searchBar {
+          position: absolute;
+          right: 2%;
+          width: 200px;
+          height: 30px;
+          border: 1px solid #FFF;
+          border-radius: 5px;
+        }
+            .fileHeader--top__searchBar::before {
+              content: "";
+              display: block;
+              width: 15px;
+              height: 15px;
+              border: 2px solid #FFF;
+              border-radius: 50%;
+              position: absolute;
+              top: 4px;
+              left: 4px;
+            }
+            .fileHeader--top__searchBar::after {
+              content: "";
+              display: block;
+              width: 10px;
+              height: 2px;
+              background-color: #FFF;
+              position: absolute;
+              left: 19px;
+              top: 20px;
+              transform: rotateZ(38deg);
+              transform-origin: center;
+            }
+        .fileHeader--top__switch {
+          position: absolute;
+          left: 2%;
+          width: 120px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
+            .switchButton {
+              position: relative;
+              width: 22.5px;
+              height: 22.5px;
+              border: 2px solid #FFF;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .closeButton::before {
+              content: "";
+              display: block;
+              width: 10px;
+              height: 10px;
+              background-color: #FFF;
+              border-radius: 50%;
+            }
+            .maximiazeButton::before {
+              content: "";
+              display: block;
+              width: 15px;
+              height: 2px;
+              background-color: #FFF;
+              position: absolute;
+              left: 3.5px;
+            }
+            .maximiazeButton::after {
+              content: "";
+              display: block;
+              width: 2px;
+              height: 15px;
+              background-color: #FFF;
+              position: absolute;
+            }
+            .minimizeButton::before {
+              content: "";
+              display: block;
+              width: 15px;
+              height: 2px;
+              background-color: #FFF;
+            }
+    .fileHeader--control {
+      width: 100%;
+      height: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+        .controlButton {
+          border: 0;
+          background-color: transparent;
+          width: 100px;
+          text-align: center;
+          padding: 0;
+          margin: 0;
+          border: 2px solid #FFF;
+          height: 30px;
+          border-radius: 15px;
+          margin-left: 10px;
+          margin-right: 10px;
+          color: #FFF;
+          font-weight: bold;
+          transition: color 0.2s ease-out, background-color 0.2s ease-out;
+        }
+        .controlButton:hover {
+          color: #000;
+          background-color: #FFF;
+        }
+.fileContainer {
+  width: 100%;
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.2s ease;
+  opacity: 0;
+}
+    .fileContainer__row1,
+    .fileContainer__row2 {
+      width: 90%;
+      height: 45%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+        .fileItem {
+          width: 120px;
+          height: 150px;
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+            .fileSvg {
+              width: 120px;
+              height: 150px;
+            }
+            .fileSvgPath {
+              stroke: #FFF;
+              stroke-width: 5;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+              fill: transparent;
+            }
+            .fileCornerSvgPath {
+              stroke: #FFF;
+              stroke-width: 1;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+              fill: #FFF;
+            }
+            .fileIcon {
+              position: absolute;
+              color: #FFF;
+              font-size: 3em;
+            }
+            .progressBar {
+              position: absolute;
+              bottom: -15px;
+              width: 120px;
+              height: 3px;
+              border-radius: 15px;
+              background-color: rgb(169, 164, 164);
+            }
+                .progressState {
+                  width: 100%;
+                  height: 100%;
+                  background-color: lime;
+                }
+                .successIconSvg {
+                  width: 15px;
+                  height: 15px;
+                  position: absolute;
+                  right: -20px;
+                  top: -9px;
+                }
+                    .successIconSvgPath {
+                      stroke: lime;
+                      stroke-width: 2px;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      fill: transparent;
+                    }
+
+
+
+
+
+/****************************************\
+  $FOCUS STATE
+\****************************************/
+.foucsFileSvg {
+  stroke: #000;
+}
+.foucsFileCornerSvg {
+  stroke: #000;
+  fill: #000;
+}
+.focusButton {
+  border-color: #000;
+  background-color: #000;
+}
+
+
+
+
+
+/****************************************\
+  $MOUSE
+\****************************************/
+.mouse {
+  position: absolute;
+  right: 7%;
+  top: 18%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(198, 198, 198, 0.8);
+  border: 2px solid rgba(234, 234, 234, 0.8);
+  transition: opacity 0.2s ease, transform ease-out;
+  opacity: 0;
+}
+
+@keyframes moveToPsdFile {
+  to {
+    right: 36%;
+    top: 73%;
+  }
+}
+.moveToPsdFile {
+  animation: moveToPsdFile 0.3s ease-out forwards, clickMouse 0.2s 0.5s ease-out forwards;
+}
+@keyframes moveToHtmlFile {
+  to {
+    right: 82%;
+    top: 50%;
+  }
+}
+.moveToHtmlFile {
+  animation: moveToHtmlFile 0.3s ease-out forwards, clickMouse 0.2s 0.5s ease-out forwards;
+}
+@keyframes moveToUploadBtn {
+  to {
+    right: 68%;
+    top: 15%;
+  }
+}
+.moveToUploadBtn {
+  animation: moveToUploadBtn 0.3s ease-out forwards, clickMouse 0.2s 0.5s ease-out forwards;
+}
+@keyframes clickMouse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/*.clickMouse {
+  animation: clickMouse 0.2s ease-out forwards;
+}
+
+.playMouseAnimation {
+  animation: moveToPsdFile 0.3s ease-out forwards,
+              clickMouse 0.2s 0.5s ease-out forwards,
+              moveToHtmlFile 0.3s 1s ease-out forwards,
+              clickMouse 0.2s 1.5s ease-out forwards,
+              moveToUploadBtn 0.3s 2s ease-out forwards,
+              clickMouse 0.2s 2.5s ease-out forwards;
+}*/
