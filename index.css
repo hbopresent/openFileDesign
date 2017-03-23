@@ -123,30 +123,6 @@ body {
         overflow: hidden;
       }
     }
-    /*.maximizeFileSize {
-      width: 900px;
-      height: 600px;
-      border-radius: 10px;
-      position: absolute;
-      left: -350px;
-      top: -225px;
-      overflow: hidden;
-    }
-    .maximizeFileSize::before {
-      content: "";
-      display: block;
-      width: 930px;
-      height: 630px;
-      position: absolute;
-      top: -15px;
-      left: -15px;
-      filter: blur(20px);
-      background-image: url(background3.jpg);
-      background-repeat: no-repeat;
-      background-size: cover;
-      z-index: -1;
-    }*/
-
 
 
 
@@ -340,10 +316,30 @@ body {
               border-radius: 15px;
               background-color: rgb(169, 164, 164);
             }
+                @keyframes uploadAnimation1 {
+                  0% {
+                    width: 0%;
+                  }
+                  100% {
+                    width: 30%;
+                  }
+                }
+                @keyframes uploadAnimation2 {
+                  0% {
+                    width: 30%;
+                  }
+                  100% {
+                    width: 100%;
+                  }
+                }
                 .progressState {
-                  width: 100%;
+                  width: 0%;
                   height: 100%;
                   background-color: lime;
+                  /* smooth version*/
+                  /*animation: uploadAnimation1 0.5s linear forwards, uploadAnimation2 0.5s 0.5s linear forwards;*/
+                  /* unsmooth version*/
+                  /*animation: uploadAnimation1 0.5s linear forwards, uploadAnimation2 0.5s 1.5s linear forwards;*/
                 }
                 .successIconSvg {
                   width: 15px;
@@ -437,15 +433,3 @@ body {
     transform: scale(1);
   }
 }
-/*.clickMouse {
-  animation: clickMouse 0.2s ease-out forwards;
-}
-
-.playMouseAnimation {
-  animation: moveToPsdFile 0.3s ease-out forwards,
-              clickMouse 0.2s 0.5s ease-out forwards,
-              moveToHtmlFile 0.3s 1s ease-out forwards,
-              clickMouse 0.2s 1.5s ease-out forwards,
-              moveToUploadBtn 0.3s 2s ease-out forwards,
-              clickMouse 0.2s 2.5s ease-out forwards;
-}*/
