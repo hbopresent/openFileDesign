@@ -45,7 +45,6 @@ body {
       top: -12.5px;
       border-top-left-radius: 5px;
       border-top-right-radius: 5px;
-      /*visibility: hidden;*/
     }
     .folder__cover {
       width: 200px;
@@ -60,7 +59,6 @@ body {
       transform-origin: 50% 100% 0;
       transform: rotatex(0deg);
       /* rotate along x aix to -70 degree*/
-      /*visibility: hidden;*/
     }
     @keyframes openFolderCover {
       0% {
@@ -68,6 +66,14 @@ body {
       }
       100% {
         transform: rotatex(-70deg);
+      }
+    }
+    @keyframes closeFolderCover {
+      0% {
+        transform: rotatex(-70deg);
+      }
+      100% {
+        transform: rotatex(0deg);
       }
     }
     .folder__file {
@@ -97,7 +103,7 @@ body {
       opacity: 0;
       transition: top 0.1s ease, left 0.1s ease, opacity 0.3s 0.2s linear;
     }
-    @keyframes maximizeFileSize {
+    @keyframes openFile {
       0% {
         width: 180px;
         height: 140px;
@@ -121,6 +127,32 @@ body {
         left: -350px;
         top: -225px;
         overflow: hidden;
+      }
+    }
+    @keyframes closeFile {
+      0% {
+        width: 900px;
+        height: 600px;
+        border-radius: 10px;
+        /*background-color: transparent;*/
+        position: absolute;
+        left: -350px;
+        top: -225px;
+        overflow: hidden;
+      }
+      50% {
+        width: 180px;
+        height: 140px;
+        position: absolute;
+        top: -150px;
+        left: 10px;
+      }
+      100% {
+        width: 180px;
+        height: 140px;
+        background-color: #FFF;
+        top: 10px;
+        left: 10px;
       }
     }
 
@@ -373,63 +405,4 @@ body {
 .focusButton {
   border-color: #000;
   background-color: #000;
-}
-
-
-
-
-
-/****************************************\
-  $MOUSE
-\****************************************/
-.mouse {
-  position: absolute;
-  right: 7%;
-  top: 18%;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: rgba(198, 198, 198, 0.8);
-  border: 2px solid rgba(234, 234, 234, 0.8);
-  transition: opacity 0.2s ease, transform ease-out;
-  opacity: 0;
-}
-
-@keyframes moveToPsdFile {
-  to {
-    right: 36%;
-    top: 73%;
-  }
-}
-.moveToPsdFile {
-  animation: moveToPsdFile 0.3s ease-out forwards, clickMouse 0.2s 0.5s ease-out forwards;
-}
-@keyframes moveToHtmlFile {
-  to {
-    right: 82%;
-    top: 50%;
-  }
-}
-.moveToHtmlFile {
-  animation: moveToHtmlFile 0.3s ease-out forwards, clickMouse 0.2s 0.5s ease-out forwards;
-}
-@keyframes moveToUploadBtn {
-  to {
-    right: 68%;
-    top: 15%;
-  }
-}
-.moveToUploadBtn {
-  animation: moveToUploadBtn 0.3s ease-out forwards, clickMouse 0.2s 0.5s ease-out forwards;
-}
-@keyframes clickMouse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.8);
-  }
-  100% {
-    transform: scale(1);
-  }
 }

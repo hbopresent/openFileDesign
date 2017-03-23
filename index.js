@@ -10,6 +10,9 @@ myFolder = (function(global) {
   var folderCover = document.getElementById("folderCover");
   // file control button elements
   var uploadButton = document.getElementById("uploadButton");
+  // windows control button elements
+  var closeButton = document.getElementById("closeButton");
+
 
   var setClickHandler = function() {
     // file items handler
@@ -20,6 +23,9 @@ myFolder = (function(global) {
 
     // upload button handler
     uploadButton.addEventListener("click", uploadFiles);
+
+    // close button handler
+    closeButton.addEventListener("click", closeWindow);
   }
 
   var uploadFiles = function() {
@@ -95,26 +101,40 @@ myFolder = (function(global) {
     }, 3500);
   }
 
-  var openFileAnimation = function() {
+  var openWindow = function() {
     folderCover.style.animation = "openFolderCover 0.3s ease forwards";
     setTimeout(function() {
-      folderFile.style.animation = "maximizeFileSize 0.5s ease forwards";
+      folderFile.style.animation = "openFile 0.5s ease forwards";
       folderFileBefore.style.top = "-15px";
       folderFileBefore.style.left = "-15px";
       folderFileBefore.style.opacity = 1;
     }, 300);
     setTimeout(function() {
-      folderCover.style.visibility = "hidden";
+      folderCover.style.zIndex = "-2";
       // show file content
       fileHeader.style.opacity = 1;
       fileContainer.style.opacity = 1;
-      mouse.style.opacity = 1;
+    }, 700);
+  };
+
+  var closeWindow = function() {
+    fileHeader.style.opacity = 0;
+    fileContainer.style.opacity = 0;
+    folderFileBefore.style.opacity = 0;
+    setTimeout(function() {
+      folderFile.style.animation = "closeFile 0.5s ease forwards";
+      folderFileBefore.style.top = "-15px";
+      folderFileBefore.style.left = "-15px";
+    }, 400);
+    setTimeout(function() {
+      folderCover.style.zIndex = "0";
+      folderCover.style.animation = "closeFolderCover 0.3s ease forwards";
     }, 700);
   };
 
   return {
     init: function() {
-      openFileAnimation();
+      openWindow();
       setClickHandler();
     }
   }
