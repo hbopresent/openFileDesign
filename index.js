@@ -54,12 +54,21 @@ myFolder = (function(global) {
     }
   };
 
+  // show the successful icon when finish uploading
+  var finishUploadingDisplay = function(path, e) {
+    if(e.animationName == "uploadAnimation2") {
+      path.style.visibility = "visible";
+    }
+  };
+
   var createProgressBar = function(focusedItem, idNum) {
     // create new elements
     var progressBar = document.createElement("div");
     var progressState = document.createElement("div");
-    var successIconSvg = document.createElement("svg");
-    var path = document.createElement("path");
+    // var successIconSvg = document.createElement("svg");
+    // var path = document.createElement("path");
+    var successIconSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    var path = document.createElementNS("http://www.w3.org/2000/svg", "path")
 
     // set attributes
     progressBar.classList.add("progressBar");
@@ -68,6 +77,11 @@ myFolder = (function(global) {
     successIconSvg.classList.add("successIconSvg");
     path.classList.add("successIconSvgPath");
     path.setAttribute("d", "M1 10 L5 14 L14 3");
+
+    // set handler on path element for showing successful icon when the progress at the end
+    progressState.addEventListener("animationend", function(e) {
+      finishUploadingDisplay(path, e);
+    });
 
     // append children
     successIconSvg.appendChild(path);
